@@ -1,152 +1,212 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-:root {
-    --bg-primary: #f4f7fb;
-    --bg-card: rgba(255, 255, 255, 0.88);
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --accent: #1d4ed8;
-    --accent-soft: #dbeafe;
-    --border: rgba(209, 213, 219, 0.7);
-    --shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
-    --radius-lg: 24px;
-    --radius-md: 16px;
-    --max-width: 900px;
-    --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+body{
+
+font-family:"Poppins",sans-serif;
+
+background:#0f0f0f;
+
+color:white;
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
 }
 
-body.page {
-    font-family: var(--font-main);
-    color: var(--text-primary);
-    background: linear-gradient(135deg, #eaf1ff 0%, #f8fafc 50%, #eef2ff 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
+/* fondo animado */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:1200px;
+height:1200px;
+
+background:radial-gradient(circle,#2563eb20,#000000);
+
+animation:move 10s infinite alternate;
+
 }
 
-.profile {
-    width: 100%;
-    max-width: var(--max-width);
+@keyframes move{
+
+0%{transform:translate(-200px,-200px)}
+100%{transform:translate(200px,200px)}
+
 }
 
-.card {
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    overflow: hidden;
+
+.container{
+
+width:100%;
+max-width:900px;
+
+padding:20px;
+
+z-index:2;
+
 }
 
-.card__header {
-    padding: 40px 32px 24px;
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: black;
-    text-align: center;
+
+.card{
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+border-radius:18px;
+
+padding:40px;
+
+transition:0.4s;
+
+box-shadow:0 0 40px rgba(0,0,0,0.5);
+
 }
 
-.card__title {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 60px rgba(37,99,235,0.3);
+
 }
 
-.card__subtitle {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
+
+.header{
+
+text-align:center;
+
+margin-bottom:35px;
+
 }
 
-.info-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 32px;
+
+.avatar{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+margin-bottom:15px;
+
+border:3px solid #2563eb;
+
+object-fit:cover;
+
+transition:0.4s;
+
 }
 
-.info-item {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: var(--radius-md);
-    padding: 22px 20px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+.avatar:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 20px #2563eb;
+
 }
 
-.info-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.10);
-    border-color: #bfdbfe;
+
+h1{
+
+font-size:28px;
+
+font-weight:600;
+
+margin-bottom:6px;
+
 }
 
-.info-item__title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 10px;
+
+.subtitle{
+
+opacity:0.7;
+
+font-size:14px;
+
 }
 
-.info-item__text {
-    font-size: 1.05rem;
-    color: var(--text-primary);
-    line-height: 1.6;
-    word-break: break-word;
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
 }
 
-/* Responsive para tablets */
-@media (max-width: 768px) {
-    .card__header {
-        padding: 32px 24px 20px;
-    }
 
-    .card__title {
-        font-size: 1.7rem;
-    }
+.item{
 
-    .info-list {
-        grid-template-columns: 1fr;
-        padding: 24px;
-    }
+background:rgba(255,255,255,0.03);
+
+padding:20px;
+
+border-radius:12px;
+
+transition:0.3s;
+
+border:1px solid rgba(255,255,255,0.05);
+
 }
 
-/* Responsive para móviles pequeños */
-@media (max-width: 480px) {
-    body.page {
-        padding: 16px;
-    }
 
-    .card__header {
-        padding: 28px 18px 18px;
-    }
+.item:hover{
 
-    .card__title {
-        font-size: 1.45rem;
-    }
+background:rgba(37,99,235,0.15);
 
-    .card__subtitle {
-        font-size: 0.95rem;
-    }
+transform:translateY(-4px);
 
-    .info-list {
-        padding: 18px;
-        gap: 14px;
-    }
+border-color:#2563eb;
 
-    .info-item {
-        padding: 18px 16px;
-    }
+}
 
-    .info-item__title {
-        font-size: 0.95rem;
-    }
 
-    .info-item__text {
-        font-size: 1rem;
-    }
+.item h2{
+
+font-size:14px;
+
+opacity:0.7;
+
+margin-bottom:6px;
+
+}
+
+
+.item p{
+
+font-size:18px;
+
+font-weight:500;
+
+}
+
+
+/* responsive */
+
+@media(max-width:700px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
 }
