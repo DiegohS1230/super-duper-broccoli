@@ -48,7 +48,7 @@ body.page {
 .card__header {
     padding: 40px 32px 24px;
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white;
+    color: black;
     text-align: center;
 }
 
